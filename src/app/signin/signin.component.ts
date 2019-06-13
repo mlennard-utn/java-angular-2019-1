@@ -18,13 +18,15 @@ export class SigninComponent implements OnInit {
   public genero: string;
   public nacionalidad: string;
 
-  constructor(private siginService: SigningserviceService) { }
+  constructor(private siginService: SigningserviceService) { 
+    
+  }
 
   ngOnInit() {
     this.genero = "masculino";
-    this.generos.push("masculino");
-    this.generos.push("femenino");
-
+    let lista = [];
+    lista = this.siginService.getListaGeneros();
+    lista.forEach( gen => this.generos.push(gen) );
     this.nacionalidad = "venezolano";
     this.nacionalidades.push("venezolano");
     this.nacionalidades.push("brasilero");
@@ -41,12 +43,14 @@ export class SigninComponent implements OnInit {
       this.nacionalidades.push("brasilero");
       this.nacionalidades.push("uruguayo");
       this.nacionalidades.push("paraguayo");
+      this.nacionalidad = "paraguayo";
     } else {
       this.nacionalidades = [];
       this.nacionalidades.push("venezolana");
       this.nacionalidades.push("brasilera");
       this.nacionalidades.push("uruguaya");
       this.nacionalidades.push("paraguaya");
+      this.nacionalidad = "paraguaya";
     }
   }
 

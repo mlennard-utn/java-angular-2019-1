@@ -9,6 +9,13 @@ export class SigningserviceService {
 
   }
 
+  public getListaGeneros() : string[] {
+    let lista = [];
+    lista.push("masculino");
+    lista.push("femenino");
+    return lista;
+  }
+
   public registroUsuario(user: string, pass: string) {
     try {
 
